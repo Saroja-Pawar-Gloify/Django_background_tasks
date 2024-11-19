@@ -1,0 +1,130 @@
+<!-- upload_file.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload File</title>
+
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Body Styling */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #F5F5F5;  
+            display: flex;
+            justify-content: center;      
+            align-items: center;          
+            flex-direction: column;       
+            height: 100vh;                
+            color: #333;                  
+        }
+        
+        /* Container (form) Styling */
+        form {
+            background-color: #FFFFFF;    
+            padding: 30px;
+            border-radius: 10px;          
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);  
+            width: 100%;
+            max-width: 450px;             
+            text-align: center;
+            margin-top: 20px;             
+        }
+        
+        /* Heading Styling */
+        h1 {
+            font-size: 26px;
+            color: #00796B;               
+            text-align: center;
+            margin-bottom: 20px;         
+        }
+        
+        /* Label Styling */
+        label {
+            font-size: 16px;
+            color: #555555;               
+            text-align: left;
+            display: block;               
+            margin-bottom: 10px;
+        }
+        
+        /* File Input Styling */
+        input[type="file"] {
+            width: 100%;                  
+            padding: 15px;
+            border: 2px solid #DDDDDD;   
+            border-radius: 6px;           
+            background-color: #FAFAFA;    
+            font-size: 14px;
+            color: #333333;               
+            transition: border-color 0.3s ease-in-out; 
+            margin-bottom: 20px;          
+        }
+        
+        /* File Input Hover Effect */
+        input[type="file"]:hover {
+            border-color: #00796B;        
+        }
+        
+        /* Submit Button Styling */
+        button {
+            background-color: #00796B;    
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;           
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease; 
+            width: 100%;                  
+        }
+        
+        /* Button Hover Effects */
+        button:hover {
+            background-color: #004D40;    
+            transform: scale(1.05);        
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 22px;           
+            }
+        
+            input[type="file"], button {
+                padding: 10px;             
+            }
+        
+            form {
+                padding: 20px;             
+                width: 100%;               
+            }
+        }
+        
+        
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>Upload a File for Processing</h1>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="file">Choose a file:</label>
+    <input type="file" name="file" required><br><br>
+    <button type="submit">Upload</button>
+</form>
+
+</body>
+</html>
